@@ -5,6 +5,6 @@
 //  dos colegas — e o professor consegue reproduzi-las.
 // ─────────────────────────────────────────────────────────────
 export const ALUNO = {
-  nome: '',
-  matricula: '', // somente números, ex.: '20231234567'
+  nome: 'Isaias Hitallo Durante Amaral',
+  matricula: '01867959631', // somente números, ex.: '20231234567'
 };

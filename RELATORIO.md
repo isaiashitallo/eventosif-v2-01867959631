@@ -1,13 +1,22 @@
 # Relatório — Estudo de caso EventosIF 2.1
 
-**Aluno(a):**  **Matrícula:**  **Turma:** 
+**Aluno(a): Isaias Hitallo Durante Amaral**  **Matrícula: 01867959631   **  **Turma: 2026/2 - Curso Sistemas para Internet** 
 
 ---
 
 ## Etapa 0 — Medição inicial
 
-Cole aqui o conteúdo de `medicoes/ultima-bancada.md` da primeira execução (antes de qualquer correção).
+# Bancada de medição — 09/10/2026, 21:33:07
 
+Matrícula: 01867959631 · eventos na massa de dados: 2131 · Node v24.15.0
+
+| Interação | Tempo (ms) | Renders de ItemEvento | Renders de ListaEventos |
+|---|---:|---:|---:|
+| 1. Abrir a aba Eventos | 3237 | 2131 | 1 |
+| 2. Digitar "progra" (6 teclas) | 4807 | 2580 | 6 |
+| 3. Favoritar o primeiro evento da lista | 492 | 156 | 1 |
+
+> Tempo varia com a máquina; contagem de renders é determinística e será conferida pelo professor.
 ---
 
 ## Parte A — Diagnóstico (SEM IA)
