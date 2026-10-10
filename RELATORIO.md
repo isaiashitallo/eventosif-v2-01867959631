@@ -25,8 +25,8 @@ Matrícula: 01867959631 · eventos na massa de dados: 2131 · Node v24.15.0
 
 | Chamado | Consegui reproduzir? Como? | Minha hipótese (arquivo e linha) | Como vou provar |
 |---|---|---|---|
-| C1 | | | |
-| C2 | | | |
+| C1 | Sim. Favoritei um evento e depois atualizei a pag. Após a atualização, observei que os favoritos não foram mantidos | Minha hipótese é que exista um problema no gerenciamento do estado ou na persistência dos favoritos, a investigação é no arquivo FavoritosContexto.js, no userEstadoPersistido | Vou utilizar console.log para observar o estado dos favoritos depois da atualização da pag e ver se o valor carregado bate com os dados salvos |
+| C2 | Sim. Reproduzi o problema atualizando a pag e observando o comportamento da lista de eventos depois do recarregamento | Minha hipótese é que exista um problema na persistência dos dados da lista de eventos, talvez relacionado ao uso de userEstadoPersistido no arquivo ListaEventos.js | Vou no console.log para acompanhar os valores da lista de eventos antes e depois da atualização da pag, vendo se os dados são mantidos ou se ocorre alguma alteração no recarregamento |
 | C3 | | | |
 | C4 | | | |
 | C5 | | | |
