@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
+import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Aplicativo from '../src/Aplicativo';
 
@@ -23,18 +23,26 @@ describe('Favoritos', () => {
     expect(screen.getAllByLabelText('Remover dos favoritos')).toHaveLength(1);
   });
 
-  // TODO: às vezes falha, depois eu vejo. Pulei pra conseguir entregar a 2.1. (Kaio)
-  it.skip('mantém os favoritos depois de fechar e abrir o app', async () => {
+  it('mantém os favoritos depois de fechar e abrir o app', async () => {
     const usuario = userEvent.setup();
     const primeiraVez = await render(<Aplicativo />);
     await abrirAbaEventos(usuario);
     const estrelas = screen.getAllByLabelText('Adicionar aos favoritos');
+
+    // marca 2 eventos para representar os favoritos da Semana.
     await usuario.press(estrelas[0]);
     await usuario.press(estrelas[1]);
+
+    // fechar e montar o app de novo simula a reabertura pelo user
     await primeiraVez.unmount(); // "fecha" o app
 
     await render(<Aplicativo />); // "abre" de novo
     await abrirAbaEventos(usuario);
-    expect(await screen.findAllByLabelText('Remover dos favoritos')).toHaveLength(2);
+    // espera terminar de carregar
+    
+    
+    await waitFor(() => {
+      expect(screen.getAllByLabelText('Remover dos favoritos')).toHaveLength(2);
+    });
   });
 });
