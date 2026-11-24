@@ -48,19 +48,33 @@ Matrícula: 01867959631 · eventos na massa de dados: 2131 · Node v24.15.0
 - Teste de regressão (arquivo e nome do teste):
 - Commit do teste vermelho: `hash` · commit da correção: `hash`
 - **B-Q1.** Descreva, em ordem temporal, o que acontece desde a montagem do provedor até o valor salvo ser perdido.
+
+O app começava com uma lista vazia e no mesmo tempo, lia os favoritos salvos. Enquanto isso podia gravar essa lista vazia no armazenamento, aí os favoritos eram apagados.
+Agora o hook espera a leitura terminar antes de gravar.
+
 - **B-Q2.** Quantas causas o chamado C1 tinha? Como você descobriu?
+
+2 causas
+A gravacão da lista vazia podia apagar os dados e msm com os dados salvos, as estrelas podiam ficar vazias: o app comparava objetos diferentes como se fossem o mesmo evento
+
+Achei isso seguindo o fluxo do hook e comparando como a lista e a tela Início mostram os favoritos. A correção atual resolve a primeira causa, não comparei os eventos pelo id
 
 ### B2 · Chamado C3
 - Causa:
 - Teste de regressão:
 - Commits:
 - **B-Q3.** Por que "apagar o armazenamento inteiro quando der erro" não é uma correção aceitável?
+Pq apagaria dados que não têm relação com o erro, como favoritos e token. É melhor corrigir o dado que falhou sem afetar o resto
+
 
 ### B3 · Chamado C4
 - Causa:
 - Teste de regressão:
 - Commits:
 - **B-Q4.** O que acontece com os dados de quem já usa a versão 2.1 (favoritos e token já gravados) quando instalar a sua versão? Sua correção trata isso?
+
+Os favoritos continuam salvos e o token tbm
+A correção não apaga nenhum dos dois, mas as estrelas ainda podem aparecer vazias por causa da comparação entre objetos, essa parte precisa ser corrigida pelo id.
 
 ---
 
