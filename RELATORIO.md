@@ -85,6 +85,13 @@ A correção não apaga nenhum dos dois, mas as estrelas ainda podem aparecer va
 | inicial | — | — | | | | — |
 | | | | | | | |
 
+- 1.Parta da medição inicial (Etapa 0). Leia os três números de renderizações de ItemEvento e explique, no relatório, de onde vem cada um.
+2.131 ao abrir Eventos: uma renderização para cada evento carregado.
+2.580 ao digitar “progra”: soma das renderizações nas seis atualizações da busca, uma por tecla.
+156 ao favoritar: nova renderização dos 156 resultados exibidos, pois as funções passadas nas props de cada item mudam quando a lista atualiza.
+
+
+
 - **C-Q1.** Qual mudança deu o maior ganho? Explique o **mecanismo** (não basta dizer "FlatList é melhor").
 - **C-Q2.** Descreva um experimento que **não** melhorou a medição. O que você fez com ele?
 - **C-Q3.** Por que o tempo medido no Jest não é o tempo que o usuário sente no celular? O que a contagem de renderizações mede de forma mais confiável?
